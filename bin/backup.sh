@@ -24,7 +24,7 @@ unzip awscli-bundle.zip
 chmod +x ./awscli-bundle/install
 ./awscli-bundle/install -i /tmp/aws
 
-BACKUP_FILE_NAME="$(date +"%Y-%m-%d-%H-%M")-$APP.dump"
+BACKUP_FILE_NAME="$(date +"%Y-%m-%d-%H-%M-%S-%z").dump"
 
 /app/vendor/heroku-toolbelt/bin/heroku pg:backups capture $DATABASE --app $APP
 curl -o $BACKUP_FILE_NAME `/app/vendor/heroku-toolbelt/bin/heroku pg:backups:url --app $APP`
